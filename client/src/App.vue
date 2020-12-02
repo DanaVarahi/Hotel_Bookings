@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <booking-form />
-    <bookings-list />
+    <bookings-list :bookings="bookings" />
   </div>
 </template>
 
