@@ -8,6 +8,7 @@
 import booking from './booking.vue'
 import BookingService from '../services/BookingService.js'
 
+
 export default {
     name: "bookings-list",
     props: ['bookings'],
@@ -15,7 +16,7 @@ export default {
         'booking': booking,
     },
     mounted(){
-
+     
     },
     methods: {
 

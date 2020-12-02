@@ -9,6 +9,7 @@
 import bookingForm from './components/bookingForm'
 import bookingList from './components/bookingsList'
 import BookingService from './services/BookingService.js'
+import { eventBus } from '@/main.js'
 
 export default {
   name: 'app',
@@ -19,8 +20,11 @@ export default {
   },
 
   mounted(){
-    this.fetchBookings()
-  },
+    this.fetchBookings(),
+
+    eventBus.$on('booking-added', (booking) =>{
+      this.bookings.push(booking)})
+    },
   components: {
     'booking-form': bookingForm,
     'bookings-list': bookingList
