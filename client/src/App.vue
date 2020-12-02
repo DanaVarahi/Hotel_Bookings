@@ -23,8 +23,13 @@ export default {
     this.fetchBookings(),
 
     eventBus.$on('booking-added', (booking) =>{
-      this.bookings.push(booking)})
-    },
+      this.bookings.push(booking)}),
+
+    eventBus.$on('booking-deleted', (id) => {
+      const index = this.bookings.findIndex(item => item._id === id)
+      this.bookings.splice(index, 1)
+    })
+  },
   components: {
     'booking-form': bookingForm,
     'bookings-list': bookingList

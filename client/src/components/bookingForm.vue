@@ -20,7 +20,7 @@ export default {
     name: 'booking-form',
     data(){
         return{
-            forname: "",
+            forename: "",
             surname: "",
             email: ""
         }

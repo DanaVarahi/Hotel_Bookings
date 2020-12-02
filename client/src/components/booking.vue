@@ -16,15 +16,23 @@
           <p class="label">Checked In?: </p>
           <input class="detail" type="checkbox" v-model=booking.isCheckedIn>
       </div>
-      <button>Delete</button>
+      <button class="delete-booking" v-on:click="deleteBooking">Delete</button>
   </div>
 </template>
 
 <script>
+import BookingService from '../services/BookingService.js'
+import { eventBus } from '@/main.js'
+
 export default {
     name: "booking",
-    props: ['booking']
-
+    props: ['booking'],
+    methods:{
+        deleteBooking(){
+            BookingService.deleteBooking(this.booking._id)
+            .then( () => eventBus.$emit('booking-deleted', this.booking._id))
+        }
+    }
 }
 </script>
 
